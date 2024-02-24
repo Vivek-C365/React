@@ -1,0 +1,287 @@
+.navbar {
+    background-color: #0f172a !important;
+    padding: 15px;
+}
+
+.nav_container {
+    display: flex;
+    flex-direction: row !important;
+}
+.nav_container img{
+    filter: invert(1);
+    width: 7vh;
+    mix-blend-mode: luminosity;
+}
+.nav_line_bar {
+    box-shadow: none !important;
+}
+.dropdown .account_btn{
+    border: none;
+    background-image: linear-gradient(45deg, #994de2, #7f23cf);
+    width: 20vh;
+    outline: none;
+}
+
+.dropdown-menu{
+    padding: 10px;
+}
+.logout_btn, .profile_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.logout_context , .profile_context{
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    width: 12vh;
+}
+
+.account_dropdown_btn:hover{
+    background-color: #80808066;
+    border-radius: 6px;
+}
+
+.Questions_Heading {
+    display: flex;
+    padding: 2.5rem;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+
+}
+
+.Questions_Heading h1,
+.Questions_Heading p {
+    position: relative;
+    font-family: system-ui;
+    color: black;
+}
+
+.Question_content{
+    background-color: #f3f4f6;
+    padding: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.language_card{
+    position: relative;
+    width: 59vh;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #80808052;
+    transition: 0.4s;
+    margin: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.language_card:hover{
+    border: 1px solid #808080c7;
+}
+.language_card h5{
+    font-weight: 400;
+    color: black;
+}
+.language_card span{
+    color: darkgray;
+}
+
+.common{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.top_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 3rem;
+}
+
+.main_page{
+    color: gray;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.main_page:hover {
+    color: black;
+}
+
+.main_page span{
+    display: flex;
+    padding: 1px;
+    position: relative;
+    height: fit-content;
+}
+
+.main_page p{
+    font-family: sans-serif;
+}
+
+.language_name{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.language_name h3{
+    font-size: 3rem;
+    font-family: system-ui;
+    color: black;
+}
+.language_name p{
+    font-size: 1.2rem;
+    font-family: system-ui;
+}
+.questions_bank{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    padding-top: 0;
+    flex-direction: column;
+}
+.questions_list{
+    background-color: #e7e7e726;
+    padding: 5rem;
+    width: 110vh;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #80808024;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.question_number{
+    display: flex;
+    position: relative;
+    height: max-content;
+    justify-content: flex-start;
+}
+.question_number span{
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.mcq_content{
+    margin-left: 20px;
+}
+.question_one{
+    display: flex;
+    padding-top: 25px;
+    width: -webkit-fill-available;
+}
+.question_title{
+    color: black !important;
+}
+.opt{
+    display: flex;
+    align-items: center;
+}
+
+.opt span{
+    margin: 14px;
+    border: 1px solid #a1a1a1;
+    padding: 10px;
+    margin-top: 0;
+    border-radius: 8px;
+}
+.answers_option ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: -webkit-fill-available;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.option1{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.option1 span{
+    background-color: antiquewhite;
+    padding: 5px;
+    display: flex;
+    width: 30px;
+    justify-content: center;
+}
+
+.option1 label{
+    padding: 10px;
+    margin: 0;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.option1 label:hover{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+.pagination{
+    padding: 2rem;
+    position: relative;
+    width: 90vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.pagination button{
+    border: none;
+    padding: 10px;
+    width: 13vh;
+    border-radius: 10px;
+    background-image: linear-gradient(45deg, #F3E5F5, #FAFAFA);
+    font-family: system-ui;
+    transition: 0.4s;
+
+}
+
+.pagination button:hover{
+    background-image: linear-gradient(172deg, #F3E5F5, #FAFAFA);
+}
+
+
+.answers_option ul li{
+    display: flex;
+    align-items: center;
+    height: 70px;
+    padding-left: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 27vh;
+    transition: 0.2s;
+
+}
+
+.answers_option ul li:hover{
+    border: 1px solid #b5b5b5;
+}
+
+.answers_option .correct{
+    border-color: green;
+}
+
+.answers_option .wrong{
+    border-color: red;
+}
