@@ -12,6 +12,9 @@ function Result() {
   const handleSubmit = () =>{
     navigate("/Questions" )
   } 
+  
+
+  
   return (
     <>
       <Question_nav />
@@ -33,7 +36,8 @@ function Result() {
               </div>
               <div className="wrong_context">
                 <img src={Cross} alt="" />
-                <span>{location.state.Wrong_sc} Incorrect</span>
+                {/* <span>{location.state.Wrong_sc - location.state.Score}  Incorrect</span> */}
+                <span>{location.state.Question_number - location.state.Score}  Incorrect</span>
               </div>
             </div>
           </div>
