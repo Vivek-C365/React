@@ -4,12 +4,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Question_nav from "./Question_nav";
 import "../Assets/css/Question.css";
 import NavigateBeforeTwoToneIcon from "@mui/icons-material/NavigateBeforeTwoTone";
+import Button from "@mui/material/Button";
 
 function Python() {
   const [MCQs, setMCQs] = useState([]);
   const [choice, setChoice] = useState([]);
   const [score, setScore] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+
   const questionsPerPage = 5; // Number of questions to display per page
   const navigate = useNavigate();
   const letterMapping = ["A", "B", "C", "D"];
@@ -52,10 +54,10 @@ function Python() {
   // Initialize an object to keep track of selected options for each question
   const selectedOptions = {};
   const correctCountsArray = [0]; // Array to store correct count values
- 
+  const choice_value = {};
+
   const checkAns = (options, choiceItem, questionId) => {
     const isCorrect = choiceItem.is_correct;
-    // console.log("Is correct? ", isCorrect);
 
     // Check if the user has already answered this question
     if (selectedOptions[questionId]) {
@@ -73,7 +75,7 @@ function Python() {
       options.target.classList.add("wrong");
     }
 
-    const cor_option = document.querySelectorAll(".opt li");
+    let cor_option = document.querySelectorAll(".opt li");
 
     // Initialize count for correct answers
     let correctCount = score;
@@ -89,7 +91,13 @@ function Python() {
     // Push the correctCount value into the array
     correctCountsArray[correctCountsArray.length - 1] = correctCount;
     console.log(correctCountsArray);
-    // console.log(correctCountsArray[correctCountsArray.length-1]);
+
+    choice_value[questionId] = {
+      option: options.target.textContent,
+      isCorrect: isCorrect,
+    };
+
+    console.log(choice_value);
   };
 
   //////////////////////////////////////////////////
@@ -97,9 +105,13 @@ function Python() {
   // Change page
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
-    const sum =correctCountsArray.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
-    setScore(sum)
-    console.log(sum)
+    const sum = correctCountsArray.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      0
+    );
+    setScore(sum);
+    console.log(sum);
+
     const options = document.querySelectorAll(".opt li");
     options.forEach((option) => {
       option.classList.remove("correct", "wrong");
@@ -134,11 +146,20 @@ function Python() {
           <div className="instructions_content">
             <h5>Instructions</h5>
             <ol type="1">
-              <li>Select one answer from the given choices.</li>
+              <li>
+                You'll be presented with 5 question at a time. Read each
+                question carefully.
+              </li>
+              <li>
+                Select your answer by tapping/clicking on one of the provided
+                options.
+              </li>
               <li>You can select only one option at a time.</li>
               <li>
-                Once you have submitted your answer, you cannot change it.
+                After answering all 5 questions, You wont able to go back and
+                change the selected option{" "}
               </li>
+              <li>Finally, submit your responses to see how you've done!</li>
             </ol>
           </div>
         </section>
@@ -190,23 +211,15 @@ function Python() {
           </div>
           {/* Pagination */}
           <div className="pagination">
-            <button
-              onClick={() => paginate(currentPage - 1)}
-              disabled={currentPage === 1}
-            >
-              Prev
-            </button>
-            <button
-              onClick={() => paginate(currentPage + 1)}
+            <Button className="next_btn" variant="contained" color="error" onClick={() => paginate(currentPage + 1)}
               disabled={
                 currentPage === Math.ceil(MCQs.length / questionsPerPage)
-              }
-            >
+              }>
               Next
-            </button>
-            <button className="submit_btn" onClick={handleSubmit}>
-              Submit
-            </button>
+            </Button>
+            <Button className="submit_btn" variant="contained" color="success" onClick={handleSubmit}>
+            Submit
+            </Button>
           </div>
         </section>
       </section>

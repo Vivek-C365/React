@@ -34,7 +34,7 @@ function Questions() {
             <section className="Question_content">
                 {language.length > 0 &&
                     language.map((languages, id) => (
-                        <NavLink className="language_card" to={`/${languages.name}`} key={id}>
+                        <NavLink className="language_card" to={`/${languages.name}`}  key={id}>
                             <h5>{languages.name} Questions</h5>
                             <span>75 Questions</span>
                         </NavLink>

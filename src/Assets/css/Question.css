@@ -117,6 +117,11 @@
     width: 40vh;
 }
 
+.instructions_content ol li{
+    margin-bottom: 20px;
+    font-family: sans-serif;
+}
+
 .main_page{
     color: gray;
     cursor: pointer;
@@ -258,24 +263,14 @@
 .pagination{
     padding: 2rem;
     position: relative;
-    width: 90vh;
+    width: -webkit-fill-available;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-wrap: wrap;
 }
-.pagination button{
-    border: none;
-    padding: 10px;
-    width: 13vh;
-    border-radius: 10px;
-    background-image: linear-gradient(45deg, #F3E5F5, #FAFAFA);
-    font-family: system-ui;
-    transition: 0.4s;
 
-}
-
-.pagination button:hover{
-    background-image: linear-gradient(172deg, #F3E5F5, #FAFAFA);
+.pagination .next_btn{
+    margin-right: 3rem;
 }
 
 
@@ -298,11 +293,11 @@
 }
 
 .answers_option .correct{
-    border-color: green;
+    border-color: black;
 }
 
 .answers_option .wrong{
-    border-color: red;
+    border-color: black;
 }
 
 
