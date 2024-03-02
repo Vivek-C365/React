@@ -61,18 +61,75 @@
 .main_content{
     position: relative;
     width: 100%;
-    padding-right: 2rem;
     padding-top: 1rem;
 }
 
 .main_content .profile_tab{
     display: flex;
     justify-content: flex-end;
+    padding-right: 2rem;
 }
 
 .main_content .avatar_profile_img{
     position: relative;
     width: 100%;
 }
+.main_content .overview_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main_content .stats_card{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    padding: 2rem;
+}
 
+.main_content .dashboard_title{
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 6px 5px 0px;
+    font-family: sans-serif;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.MuiBox-root{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ .main_content .dashboard_title .head_content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+ }
+.main_content .dashboard_title .head_img{
+    margin-right: 10px;
+}
+
+.main_content .dashboard_title .head_img img{
+    position: relative;
+    width: 5vh;
+}
+.main_content .language_stats{
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 6px 5px 0px;
+    font-family: sans-serif;
+    padding-bottom: 5px;
+    font-weight: bold;
+    height: 38vh;
+    overflow-x: auto;
+
+}
 /* Main content Section End */

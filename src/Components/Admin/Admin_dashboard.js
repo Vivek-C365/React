@@ -1,116 +1,185 @@
-import React, { useState } from "react";
-import { Box, Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip } from "@mui/material";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
-import "../../Assets/css/Admin.css";
-import QuestionsLogo from "../../Assets/images/Question_logo_1.png";
-import DashboardImg from "../../Assets/images/Admin/Home.png";
-import LanguageImg from "../../Assets/images/Admin/Coding.png";
-import DocumentImg from "../../Assets/images/Admin/Document.png";
-import avatar from '../../Assets/images/Admin/avatar.png'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import TextField from "@mui/material/TextField";
+import Alert from "@mui/material/Alert";
+import Admin_nav from "./Admin_nav";
+import Admin_profile from "./Admin_profile";
+import Coding_black from "../../Assets/images/Admin/Coding_black.png";
 
-const AdminDashboard = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+function Admin_dashboard() {
+  const [language, setLanguage] = useState([]); // array of languages
+  const [open, setOpen] = useState(false);
+  const [add_language, setAdd_language] = useState("");
+  const [alert, setAlert] = useState({ severity: "", message: "" });
+
+  useEffect(() => {
+    async function getallLanguage() {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/language/");
+        setLanguage(response.data);
+      } catch (error) {
+      }
+    }
+    getallLanguage();
+  }, []);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setAlert({ severity: "", message: "" }); // Reset alert when modal is closed
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const AddLanguage = async () => {
+    if (add_language === "") {
+        setAlert({ severity: "error", message: "Language name cannot be empty" });
+        return;
+    }
+
+    try {
+        // Check if the language already exists
+        const checkResponse = await axios.get("http://127.0.0.1:8000/api/language/");
+        
+        // Compare each language name with the new language to be added
+        const languageExists = checkResponse.data.some(language => language.name === add_language);
+        
+        if (languageExists) {
+            setAlert({ severity: "warning", message: "Language already exists" });
+            return;
+        }
+        
+        // If language does not exist, proceed to add it
+        const formField = new FormData();
+        formField.append("name", add_language);
+        
+        await axios.post(
+            "http://127.0.0.1:8000/api/createlanguage/",
+            formField
+        );
+
+        setAdd_language("");
+        setOpen(false);
+        
+        const updatedResponse = await axios.get(
+            "http://127.0.0.1:8000/api/language/"
+        );
+        
+        setLanguage(updatedResponse.data);
+        setAlert({ severity: "success", message: "Language added successfully" });
+    } catch (error) {
+        setAlert({ severity: "error", message: "Failed to add language" });
+    }
+
+    // Close the alert automatically after 3 seconds
+    setTimeout(() => {
+      setAlert({ severity: "", message: "" });
+    }, 3000);
   };
 
   return (
-    <section className="wrapper">
-      <section className="side_nav">
-        <div className="logo_img">
-          <img src={QuestionsLogo} alt="Questions Logo" />
-        </div>
+    <>
+      <section className="wrapper">
+        <Admin_nav />
+        <section className="main_content">
+          <Admin_profile />
 
-        <div className="tabs">
-          {tab("Dashboard", DashboardImg)}
-          {tab("Language", LanguageImg)}
-          {tab("Add Questions", DocumentImg)}
-        </div>
-      </section>
+          <section className="overview_content">
+            <div className="stats_card">
+              {alert.message && (
+                <Alert severity={alert.severity}>{alert.message}</Alert>
+              )}
 
-      <section className="main_content">
-        <div className="profile_tab">
-          <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-            <Tooltip title="Account settings">
-              <IconButton
-                onClick={handleClick}
-                size="small"
-                sx={{ ml: 2 }}
-                aria-controls={open ? "account-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-              >
-                <Avatar sx={{ width: 32, height: 32 }}>
-                  <img className="avatar_profile_img" src={avatar} alt="" />
-                </Avatar>
-              </IconButton>
-            </Tooltip>
-          </Box>
-          <Menu
-            anchorEl={anchorEl}
-            id="account-menu"
-            open={open}
-            onClose={handleClose}
-            onClick={handleClose}
-            PaperProps={{
-              elevation: 0,
-              sx: {
-                overflow: "visible",
-                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-                mt: 1.5,
-                "& .MuiAvatar-root": { width: 32, height: 32, ml: -0.5, mr: 1 },
-                "&::before": {
-                  content: '""',
-                  display: "block",
-                  position: "absolute",
-                  top: 0,
-                  right: 14,
-                  width: 10,
-                  height: 10,
-                  bgcolor: "background.paper",
-                  transform: "translateY(-50%) rotate(45deg)",
-                  zIndex: 0,
-                },
-              },
-            }}
-            transformOrigin={{ horizontal: "right", vertical: "top" }}
-            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-          >
-            <MenuItem onClick={handleClose}>
-              <Avatar /> My account
-            </MenuItem>
-            <Divider />
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon><Settings fontSize="small" /></ListItemIcon>
-              Settings
-            </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <ListItemIcon><Logout fontSize="small" /></ListItemIcon>
-              Logout
-            </MenuItem>
-          </Menu>
-        </div>
+              <div className="dashboard_title">
+                <div className="head_content">
+                  <div className="head_img">
+                    <img src={Coding_black} alt="logo" />
+                  </div>
+                  <div className="heading">
+                    <span>Languages</span>
+                  </div>
+                </div>
+                <Fab
+                  onClick={handleOpen}
+                  size="small"
+                  color="error"
+                  aria-label="add"
+                >
+                  <AddIcon />
+                </Fab>
+
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  open={open}
+                  onClose={handleClose}
+                  closeAfterTransition
+                  slots={{ backdrop: Backdrop }}
+                  slotProps={{
+                    backdrop: {
+                      timeout: 500,
+                    },
+                  }}
+                >
+                  <Fade in={open}>
+                    <Box sx={style}>
+                      <TextField
+                        id="filled-basic"
+                        label="Add Language"
+                        variant="filled"
+                        name="add_language"
+                        value={add_language}
+                        onChange={(e) => setAdd_language(e.target.value)}
+                      />
+                      <Button
+                        onClick={AddLanguage}
+                        variant="contained"
+                        color="success"
+                        endIcon={<SendIcon />}
+                      >
+                        Add
+                      </Button>
+                    </Box>
+                  </Fade>
+                </Modal>
+              </div>
+              <div className="language_stats">
+                <div className="language_stats_card">
+                  <ol type="1">
+                    {language.length > 0 &&
+                      language.map((languages, index) => (
+                        <li key={index}>{languages.name}</li>
+                      ))}
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
+        </section>
       </section>
-    </section>
+    </>
   );
-};
+}
 
-const tab = (text, image) => (
-  <div className="dashboard_tab tab_common">
-    <div className="dashboard_tab_img tab_common_img">
-      <img src={image} alt={text} />
-    </div>
-    <div className="dashboard_tab_text">
-      <span>{text}</span>
-    </div>
-  </div>
-);
+export default Admin_dashboard;
 
-export default AdminDashboard;
+
+
