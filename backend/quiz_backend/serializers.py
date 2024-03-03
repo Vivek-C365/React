@@ -9,7 +9,7 @@ class Registration_serializer(serializers.ModelSerializer):
 class Language_serializer(serializers.ModelSerializer):
     class Meta:
         model=Language
-        fields=['id', 'name']
+        fields='__all__'
 
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:

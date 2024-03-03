@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from rest_framework import status
+from rest_framework.response import Response
 from .serializers import Registration_serializer , Language_serializer , QuestionSerializer ,  TestSerializer , Choice_serializer
-from rest_framework.generics import ListAPIView
+from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView , CreateAPIView , UpdateAPIView , DestroyAPIView
 # Create your views here.
 from .models import Registration , Language , Question ,Test , Choice
 
@@ -31,3 +34,9 @@ class TestList(ListAPIView):
     def get_queryset(self):
         language_id = self.request.query_params.get('language')
         return Test.objects.filter(language_id=language_id)
+
+# POST data TO  SERVER
+class CreateLanguageView(CreateAPIView):
+    queryset = Language.objects.all()
+    serializer_class =  Language_serializer
+       

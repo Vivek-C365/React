@@ -7,5 +7,6 @@ urlpatterns = [
     path('questions/', views.QuestionList.as_view()),
     path('test/', views.TestList.as_view()),
     path('choice/', views.ChoiceList.as_view()),
+    path('createlanguage/', views.CreateLanguageView.as_view(), name='create_language'),
     
 ]
