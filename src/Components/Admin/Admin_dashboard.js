@@ -10,8 +10,8 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import TextField from "@mui/material/TextField";
 import Alert from "@mui/material/Alert";
-import Admin_nav from "./Admin_nav";
-import Admin_profile from "./Admin_profile";
+import AdminNav from "./Admin_nav";
+import Adminrofile from "./Admin_profile";
 import Coding_black from "../../Assets/images/Admin/Coding_black.png";
 
 const style = {
@@ -98,9 +98,9 @@ function Admin_dashboard() {
   return (
     <>
       <section className="wrapper">
-        <Admin_nav />
+        <AdminNav />
         <section className="main_content">
-          <Admin_profile />
+          <Adminrofile />
 
           <section className="overview_content">
             <div className="stats_card">

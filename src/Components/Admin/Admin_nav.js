@@ -1,25 +1,14 @@
-import React, { useState } from "react";
-import { Box, Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip } from "@mui/material";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
+import React from "react";
 import "../../Assets/css/Admin.css";
 import QuestionsLogo from "../../Assets/images/Question_logo_1.png";
 import DashboardImg from "../../Assets/images/Admin/Home.png";
 import LanguageImg from "../../Assets/images/Admin/Coding.png";
 import DocumentImg from "../../Assets/images/Admin/Document.png";
-import avatar from '../../Assets/images/Admin/avatar.png';
+import { NavLink} from "react-router-dom";
 
 const AdminDashboard = () => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  
 
   const tab = (text, image) => (
     <div className="dashboard_tab tab_common">
@@ -40,8 +29,15 @@ const AdminDashboard = () => {
         </div>
 
         <div className="tabs">
+          <NavLink to="/Admin/Dashboard" exact activeClassName="active">
+
           {tab("Dashboard", DashboardImg)}
+          </NavLink>
+
+          <NavLink to="/Admin/Language">
+
           {tab("Language", LanguageImg)}
+          </NavLink>
           {tab("Add Questions", DocumentImg)}
         </div>
       </nav>

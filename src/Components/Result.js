@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation , useNavigate} from 'react-router-dom'
-import Question_nav from "../Components/Question_nav";
+import QuestionNav from "../Components/Question_nav";
 import "../Assets/css/result.css";
 import Frame from "../Assets/images/Frame.png";
 import Tick from "../Assets/images/Tick_Box.png";
@@ -17,7 +17,7 @@ function Result() {
   
   return (
     <>
-      <Question_nav />
+      <QuestionNav />
       <section className="result_details">
         <div className="result">
           <div className="result_number result_content">

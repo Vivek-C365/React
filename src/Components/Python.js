@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink, useNavigate } from "react-router-dom";
-import Question_nav from "./Question_nav";
+import { NavLink, useNavigate , useLocation } from "react-router-dom";
+import QuestionNav from "./Question_nav";
 import "../Assets/css/Question.css";
 import NavigateBeforeTwoToneIcon from "@mui/icons-material/NavigateBeforeTwoTone";
 import Button from "@mui/material/Button";
@@ -14,6 +14,7 @@ function Python() {
 
   const questionsPerPage = 5; // Number of questions to display per page
   const navigate = useNavigate();
+  const location= useLocation()
   const letterMapping = ["A", "B", "C", "D"];
   // Logic to paginate questions
   const indexOfLastQuestion = currentPage * questionsPerPage;
@@ -27,13 +28,15 @@ function Python() {
     async function getallquestions() {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/questions/?language=1"
+          `http://127.0.0.1:8000/api/questions/?language=${location.state.languageId}`
         );
         setMCQs(response.data);
-      } catch (error) {}
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+      }
     }
     getallquestions();
-  }, []);
+  }, [location.state.languageId]);
 
   useEffect(() => {
     async function getallchoice() {
@@ -130,7 +133,7 @@ function Python() {
 
   return (
     <>
-      <Question_nav />
+      <QuestionNav />
       <section className="python_content">
         <section className="top_header">
           <div className="question_link">
@@ -166,9 +169,9 @@ function Python() {
 
         <section className="questions_bank">
           <div className="language_name">
-            <h3>Python Questions</h3>
+            <h3>{location.state.languageName} Questions</h3>
             <p>
-              Test, rate and improve your Python knowledge with these questions.
+              Test, rate and improve your {location.state.languageName} knowledge with these questions.
             </p>
           </div>
           <div className="questions_list">

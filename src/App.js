@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useLocation} from 'react-router-dom'
 import './Assets/css/bootstrap.min.css'
+
 import "./App.css";
 import Admin from './Components/Admin/Admin_login'
 import Dashboard from './Components/Admin/Admin_dashboard'
+import Adminlanguage from './Components/Admin/Admin_langugae'
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Questions from "./Components/Questions";
@@ -23,6 +26,9 @@ function App() {
   //     document.removeEventListener('contextmenu', disableRightClick);
   //   };
   // }, []);
+
+
+  
   return (
     <>
       <Router>
@@ -31,9 +37,10 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/Admin/Login" element={<Admin />} />
           <Route path="/Admin/Dashboard" element={<Dashboard />} />
+          <Route path="/Admin/Language" element={<Adminlanguage />} />
           <Route path="/Registration" element={<Registration />} />
           <Route path="/Questions" element={<Questions />} />
-          <Route path="/Python" element={<Python />} />
+          <Route path="/Quiz" element={<Python />} />
           <Route path="/Result" element={<Result />} />
         </Routes>
 
