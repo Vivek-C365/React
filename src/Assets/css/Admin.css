@@ -1,0 +1,142 @@
+.wrapper{
+    display: flex;
+}
+
+/* Side Nav Bar Start */
+.side_nav{
+    background-color: #3F2768;
+    padding: 1rem;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.side_nav .logo_img{
+    padding: 1rem;
+    margin-bottom: 35px;
+}
+.logo_img img{
+    width: 10vh;
+}
+
+.side_nav .tabs{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 30vh;
+    justify-content: space-between;
+    width: 11vw;
+    color: white;
+}
+
+.side_nav .tabs a{
+    text-decoration: none;
+    color: white;
+    font-family: sans-serif;
+}
+
+.tab_common{
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.tab_common:hover{
+    cursor: pointer;
+    background-color: #77889970;
+}
+
+.tab_common_img img{
+    margin-right: 10px;
+}
+/* Side Nav Bar End */
+
+
+
+
+/* Main content Section Start */
+
+.main_content{
+    position: relative;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+.main_content .profile_tab{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    margin-bottom: 20px;
+}
+
+.main_content .avatar_profile_img{
+    position: relative;
+    width: 100%;
+}
+.main_content .overview_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main_content .stats_card{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    padding: 2rem;
+}
+
+.main_content .dashboard_title{
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    box-shadow: 6px 5px 0px;
+    font-family: sans-serif;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.MuiBox-root{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ .main_content .dashboard_title .head_content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+ }
+.main_content .dashboard_title .head_img{
+    margin-right: 10px;
+}
+
+.main_content .dashboard_title .head_img img{
+    position: relative;
+    width: 5vh;
+}
+.main_content .language_stats{
+    background-color: white;
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 6px 5px 0px;
+    font-family: sans-serif;
+    padding-bottom: 5px;
+    font-weight: bold;
+    height: 38vh;
+    overflow-x: auto;
+
+}
+/* Main content Section End */

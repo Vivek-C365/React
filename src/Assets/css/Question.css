@@ -98,12 +98,28 @@
 
 }
 
+/* Python Page  */
+.python_content{
+    display: flex;
+    padding: 2rem;
+}
+
 .top_header{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
     padding: 3rem;
+    padding-top: 0;
+}
+
+.instructions_content{
+    width: 40vh;
+}
+
+.instructions_content ol li{
+    margin-bottom: 20px;
+    font-family: sans-serif;
 }
 
 .main_page{
@@ -136,6 +152,7 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+    padding-top: 0;
 }
 
 .language_name h3{
@@ -166,6 +183,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 2rem;
+    
+
 }
 .question_number{
     display: flex;
@@ -188,6 +208,11 @@
 }
 .question_title{
     color: black !important;
+    
+}
+
+.question_title h3{
+    font-size: 1.6rem;
 }
 .opt{
     display: flex;
@@ -238,38 +263,27 @@
 .pagination{
     padding: 2rem;
     position: relative;
-    width: 90vh;
+    width: -webkit-fill-available;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-wrap: wrap;
 }
-.pagination button{
-    border: none;
-    padding: 10px;
-    width: 13vh;
-    border-radius: 10px;
-    background-image: linear-gradient(45deg, #F3E5F5, #FAFAFA);
-    font-family: system-ui;
-    transition: 0.4s;
 
-}
-
-.pagination button:hover{
-    background-image: linear-gradient(172deg, #F3E5F5, #FAFAFA);
+.pagination .next_btn{
+    margin-right: 3rem;
 }
 
 
 .answers_option ul li{
     display: flex;
     align-items: center;
-    height: 70px;
-    padding-left: 15px;
     border: 1px solid #eee;
     border-radius: 8px;
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 17px;
     cursor: pointer;
     width: 27vh;
+    padding: 1rem;
     transition: 0.2s;
 
 }
@@ -279,9 +293,11 @@
 }
 
 .answers_option .correct{
-    border-color: green;
+    border-color: black;
 }
 
 .answers_option .wrong{
-    border-color: red;
+    border-color: black;
 }
+
+

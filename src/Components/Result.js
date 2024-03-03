@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation , useNavigate} from 'react-router-dom'
-import Question_nav from "../Components/Question_nav";
+import QuestionNav from "../Components/Question_nav";
 import "../Assets/css/result.css";
 import Frame from "../Assets/images/Frame.png";
 import Tick from "../Assets/images/Tick_Box.png";
@@ -12,9 +12,12 @@ function Result() {
   const handleSubmit = () =>{
     navigate("/Questions" )
   } 
+  
+
+  
   return (
     <>
-      <Question_nav />
+      <QuestionNav />
       <section className="result_details">
         <div className="result">
           <div className="result_number result_content">
@@ -33,7 +36,8 @@ function Result() {
               </div>
               <div className="wrong_context">
                 <img src={Cross} alt="" />
-                <span>{location.state.Wrong_sc} Incorrect</span>
+                {/* <span>{location.state.Wrong_sc - location.state.Score}  Incorrect</span> */}
+                <span>{location.state.Question_number - location.state.Score}  Incorrect</span>
               </div>
             </div>
           </div>
