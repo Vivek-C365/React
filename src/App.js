@@ -1,12 +1,14 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useLocation} from 'react-router-dom'
 import './Assets/css/bootstrap.min.css'
 
 import "./App.css";
 import Admin from './Components/Admin/Admin_login'
 import Dashboard from './Components/Admin/Admin_dashboard'
 import Adminlanguage from './Components/Admin/Admin_langugae'
+import AdminQuestions from './Components/Admin/Admin_Question'
+import AddQuestions from './Components/Admin/Add_question'
+import EditQuesitons from './Components/Admin/Edit_quesitons'
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Questions from "./Components/Questions";
@@ -38,6 +40,10 @@ function App() {
           <Route path="/Admin/Login" element={<Admin />} />
           <Route path="/Admin/Dashboard" element={<Dashboard />} />
           <Route path="/Admin/Language" element={<Adminlanguage />} />
+          <Route path="/Admin/Questions" element={<AdminQuestions />} />
+          <Route path="/Admin/Add_Questions" element={<AddQuestions />} />
+          <Route path="/Admin/Edit_Quesitons" element={<EditQuesitons />} />
+
           <Route path="/Registration" element={<Registration />} />
           <Route path="/Questions" element={<Questions />} />
           <Route path="/Quiz" element={<Python />} />

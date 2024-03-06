@@ -38,7 +38,11 @@ const AdminDashboard = () => {
 
           {tab("Language", LanguageImg)}
           </NavLink>
+
+          <NavLink to="/Admin/Questions">
+
           {tab("Add Questions", DocumentImg)}
+          </NavLink>
         </div>
       </nav>
 

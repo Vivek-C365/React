@@ -31,6 +31,7 @@ function Python() {
           `http://127.0.0.1:8000/api/questions/?language=${location.state.languageId}`
         );
         setMCQs(response.data);
+        console.log(response.data.length)
       } catch (error) {
         console.error("Error fetching questions:", error);
       }

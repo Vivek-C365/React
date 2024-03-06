@@ -114,7 +114,7 @@ function Admin_dashboard() {
                     <img src={Coding_black} alt="logo" />
                   </div>
                   <div className="heading">
-                    <span>Languages</span>
+                    <span>Subjects</span>
                   </div>
                 </div>
                 <Fab

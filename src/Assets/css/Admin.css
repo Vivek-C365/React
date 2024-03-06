@@ -1,9 +1,9 @@
-.wrapper{
+.wrapper {
     display: flex;
 }
 
 /* Side Nav Bar Start */
-.side_nav{
+.side_nav {
     background-color: #3F2768;
     padding: 1rem;
     position: relative;
@@ -11,18 +11,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-.side_nav .logo_img{
+.side_nav .logo_img {
     padding: 1rem;
     margin-bottom: 35px;
 }
-.logo_img img{
+
+.logo_img img {
     width: 10vh;
 }
 
-.side_nav .tabs{
+.side_nav .tabs {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -32,13 +33,13 @@
     color: white;
 }
 
-.side_nav .tabs a{
+.side_nav .tabs a {
     text-decoration: none;
     color: white;
     font-family: sans-serif;
 }
 
-.tab_common{
+.tab_common {
     display: flex;
     margin-bottom: 10px;
     align-items: center;
@@ -49,14 +50,15 @@
     transition: 0.3s;
 }
 
-.tab_common:hover{
+.tab_common:hover {
     cursor: pointer;
     background-color: #77889970;
 }
 
-.tab_common_img img{
+.tab_common_img img {
     margin-right: 10px;
 }
+
 /* Side Nav Bar End */
 
 
@@ -64,37 +66,39 @@
 
 /* Main content Section Start */
 
-.main_content{
+.main_content {
     position: relative;
     width: 100%;
     padding-top: 1rem;
 }
 
-.main_content .profile_tab{
+.main_content .profile_tab {
     display: flex;
     justify-content: flex-end;
     padding-right: 2rem;
     margin-bottom: 20px;
 }
 
-.main_content .avatar_profile_img{
+.main_content .avatar_profile_img {
     position: relative;
     width: 100%;
 }
-.main_content .overview_content{
+
+.main_content .overview_content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.main_content .stats_card{
+
+.main_content .stats_card {
     display: flex;
     flex-direction: column;
     width: 50vh;
     padding: 2rem;
 }
 
-.main_content .dashboard_title{
+.main_content .dashboard_title {
     background-color: white;
     border: 1px solid;
     border-radius: 10px;
@@ -108,25 +112,28 @@
     justify-content: space-between;
 }
 
-.MuiBox-root{
+.MuiBox-root {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
- .main_content .dashboard_title .head_content{
+
+.main_content .dashboard_title .head_content {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
- }
-.main_content .dashboard_title .head_img{
+}
+
+.main_content .dashboard_title .head_img {
     margin-right: 10px;
 }
 
-.main_content .dashboard_title .head_img img{
+.main_content .dashboard_title .head_img img {
     position: relative;
     width: 5vh;
 }
-.main_content .language_stats{
+
+.main_content .language_stats {
     background-color: white;
     border: 1px solid;
     border-radius: 10px;
@@ -139,4 +146,198 @@
     overflow-x: auto;
 
 }
+
+td button {
+    margin-right: 20px !important;
+
+}
+
+.update_language_field {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid darkgray;
+}
+
+/* Admin questions Panel Starts */
+
+.admin-question {
+    padding: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+
+
+}
+
+.Subject_title h1 {
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.add_questions_cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.subject_card {
+    position: relative;
+    width: 50vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 14px 0 darkslategray;
+    margin: 30px;
+
+}
+
+.subject_card .subject_img img {
+    position: relative;
+    width: -webkit-fill-available;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+
+.subject_card_content {
+    padding: 20px;
+}
+
+
+.subject_card_content .card_title h4 {
+    margin-top: 5px;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: darkslategray;
+}
+
+.subject_card_content .card_secondary_title p {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #756F6F;
+}
+
+.subject_card_content .add_question_btn {
+    position: relative;
+    width: max-content;
+
+}
+
+.subject_card_content .add_question_btn button {
+    border: 1.4px solid #3F2768;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #3F2768;
+    font-family: sans-serif;
+    margin-right: 25px;
+    transition: 0.2s all ease-in-out;
+}
+
+.subject_card_content .add_question_btn button:hover {
+    background-color: #3f276816;
+}
+
+/* Admin questions Panel Ends */
+
+
+/* Add quesions starts here */
+
+.add_question_content{
+    padding: 0rem 7rem 0rem 7rem;
+
+}
+
+.add_question_content .Tab_heading{
+    margin-bottom: 1rem;
+}
+
+.add_question_content .Tab_heading h1{
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.question_common{
+    margin-bottom: 2rem;
+}
+
+.question_common h2{
+    font-size: 1.4rem;
+}
+
+.add_question_content .topic_heading input{
+    padding: 13px;
+    background-color: #F4F5FF;
+    border: 1.3px solid #3F2768;
+    border-radius: 4px;
+    color: #3F2768;
+}
+
+.add_question_content .add_question_field input{
+    position: relative;
+    width: 60vw;
+    padding: 10px;
+    border: 1.3px solid #5E3B8D;
+    color: #5E3B8D;
+    border-radius: 6px;
+    background-color: #F4F5FF;
+    outline: none;
+}
+
+.question_common h4{
+    color: #756F6F;
+    font-size: 1rem;
+    font-family: system-ui;
+    font-weight: 400;
+}
+.options_submission{
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.enter_options{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+}
+
+.enter_options label{
+    padding: 5px 10px 10px 10px;
+
+}
+
+.enter_options .options_fields{
+    margin-right: 7rem;
+}
+
+.input_field input{
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1.2px solid #5E3B8D;
+    margin-left: 10px;
+    background-color: #F4F5FF;
+
+}
+
+.create_btn button{
+    padding: 8px;
+    width: 7vw;
+    border: none;
+    background-color: #5E3B8D;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: sans-serif;
+    transition: 0.3s ease-in-out;
+
+}
+
+.create_btn button:hover{
+    background-color: #4f228d;
+}
+/* Add quesions Ends here */
+
 /* Main content Section End */
